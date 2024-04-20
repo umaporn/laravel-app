@@ -1,0 +1,35 @@
+version: "3.5"
+
+services:
+    laravel-app:
+        build:
+            context: ./laravel-app
+        container_name: laravel-app
+        volumes:
+            - ./laravel-app:/var/www/html
+        ports:
+            - 8000:80
+        networks:
+            backend:
+                aliases:
+                    - book-app
+
+    mysql-db:
+        platform: linux/amd64
+        image: mysql:5.7
+        container_name: mysql-db
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_DATABASE: book-management
+            MYSQL_ROOT_PASSWORD: book-password
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        networks:
+            backend:
+                aliases:
+                    - mysql-db
+
+networks:
+    backend:
+        name: backend-network
