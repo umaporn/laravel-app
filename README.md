@@ -68,10 +68,22 @@ docker-compose exec laravel-app composer install
 docker-compose exec laravel-app php artisan migrate
 ```
 
-9. you can seed the database with initial data:
+9. You can seed the database with initial data:
 
 ```bash
 docker-compose exec laravel-app php artisan db:seed
 ```
 
+10. You can run test with:
+
+```bash
+docker-compose exec laravel-app php artisan test --testsuite=Feature
+```
+
+Here is the test result
+![Alt text](image.png)
+
 Your Laravel application should now be up and running! You can access it at `http://localhost:8000`.
+
+Here is book management page.
+![Alt text](image-1.png)
