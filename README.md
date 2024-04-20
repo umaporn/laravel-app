@@ -45,7 +45,7 @@ FIREBASE_CLOUD_FUNCTION_URL=
 5. Generate the application key:
 
 ```bash
-docker-compose run --rm app php artisan key:generate
+docker-compose exec laravel-app php artisan key:generate
 ```
 
 6. Build and start the Docker containers:
@@ -59,19 +59,19 @@ This command will build the necessary Docker images and start the containers in 
 7. Install the project dependencies:
 
 ```bash
-docker-compose run --rm app composer install
+docker-compose exec laravel-app composer install
 ```
 
 8. Run the database migrations:
 
 ```bash
-docker-compose run --rm app php artisan migrate
+docker-compose exec laravel-app php artisan migrate
 ```
 
 9. you can seed the database with initial data:
 
 ```bash
-docker-compose run --rm app php artisan db:seed
+docker-compose exec laravel-app php artisan db:seed
 ```
 
 Your Laravel application should now be up and running! You can access it at `http://localhost:8000`.
